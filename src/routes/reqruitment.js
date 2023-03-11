@@ -9,7 +9,7 @@ const moduleRouteDef = {
   routes: [
     {
       active: true,
-      method: 'get',
+      method: 'post',
       path: '/',
       summary: 'Check Recruitment',
       description: 'Get Api Recruitment',
