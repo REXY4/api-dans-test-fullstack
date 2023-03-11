@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 const request = require('supertest');
-const express = require('express');
 const Manifest = require('./manifest');
 
 describe('Test example', () => {
@@ -11,11 +10,12 @@ describe('Test example', () => {
     this.expressApp = this.manifest.server.http;
   });
 
+
   afterAll((done) => {
     this.expressApp.close(done);
   });
 
-  test('check GET /api/v1/ping', (done) => {
+  test('GET PING /api/v1/ping', (done) => {
     request(this.expressApp)
       .get('/api/v1/ping')
       .expect('Content-Type', /json/)
@@ -25,4 +25,22 @@ describe('Test example', () => {
         return done();
       });
   });
+
+  //login api
+  test('GET LOGIN /api/v1/login', (done) => {
+    request(this.expressApp)
+      .get('/api/v1/user/login')
+      .send({
+        email: 'jhondoe@gmail.com',
+        password : "123456"
+      })
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end((err, res) => {
+        this.token = res.body.data.token;
+        if (err) return done(err);
+        return done();
+      });
+  });
+ 
 });

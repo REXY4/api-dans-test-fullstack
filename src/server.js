@@ -28,7 +28,6 @@ class Server {
       description,
       host,
     } = this.manifest.config.app;
-    this.condom = 'halo';
     this.http = this.app.listen(port, () => console.dir({
       message: `APP RUNNING ON PORT ${3000}`,
       data: {

@@ -1,11 +1,12 @@
 const exception = require('../exceptions/exceptions');
-const response = require('../helpers/response');
+
+const { ping: pingService } = require('../services');
 
 const getAll = (req, res) => {
   try {
     res
       .status(200)
-      .send(response('PING:OK', null));
+      .send(pingService.checkAll());
   } catch (error) {
     res
       .status(500)

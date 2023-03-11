@@ -4,9 +4,10 @@ const response = require('../helpers/response');
 const moduleRouteDef = {
   basePath: '/api/v1/ping',
   description: 'Ping APIs',
-  active: true,
+ 
   routes: [
     {
+        active: true,
       method: 'get',
       path: '/',
       summary: 'Check Ping',
