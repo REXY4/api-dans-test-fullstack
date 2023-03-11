@@ -18,7 +18,7 @@ note :
 ```
 -3
 ```
-    npm run sql:seeder:all
+    npm run sql:seed:all
 ```
 -4
 ```
