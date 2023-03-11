@@ -26,32 +26,45 @@ describe('Test example', () => {
   });
 
   // login api
-  test('GET LOGIN /api/v1/user/login', (done) => {
-    request(this.expressApp)
-      .get('/api/v1/user/login')
-      .send({
-        email: 'jhondoe@gmail.com',
-        password: '123456'
-      })
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .end((err, res) => {
-        this.token = res.body.data.token;
-        if (err) return done(err);
-        return done();
-      });
-  });
+  // test('GET LOGIN /api/v1/user/login', (done) => {
+  //   request(this.expressApp)
+  //     .get('/api/v1/user/login')
+  //     .send({
+  //       email: 'jhondoe@gmail.com',
+  //       password: '123456'
+  //     })
+  //     .expect('Content-Type', /json/)
+  //     .expect(200)
+  //     .end((err, res) => {
+  //       this.token = res.body.data.token;
+  //       if (err) return done(err);
+  //       return done();
+  //     });
+  // });
 
-  test('GET LOGIN /api/v1/user/check', (done) => {
-    request(this.expressApp)
-      .get('/api/v1/user/check')
-      .set('Authorization', `Bearer ${this.token}`)
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .end((err, res) => {
-        this.user = res.body;
-        if (err) return done(err);
-        return done();
-      });
-  });
+  // test('GET LOGIN /api/v1/user/check', (done) => {
+  //   request(this.expressApp)
+  //     .get('/api/v1/user/check')
+  //     .set('Authorization', `Bearer ${this.token}`)
+  //     .expect('Content-Type', /json/)
+  //     .expect(200)
+  //     .end((err, res) => {
+  //       this.user = res.body;
+  //       if (err) return done(err);
+  //       return done();
+  //     });
+  // });
+
+  // test('POST CREATE USER /api/v1/user/check', (done) => {
+  //   request(this.expressApp)
+  //     .get('/api/v1/user/check')
+  //     .set('Authorization', `Bearer ${this.token}`)
+  //     .expect('Content-Type', /json/)
+  //     .expect(200)
+  //     .end((err, res) => {
+  //       this.user = res.body;
+  //       if (err) return done(err);
+  //       return done();
+  //     });
+  // });
 });

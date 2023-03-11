@@ -11,7 +11,7 @@ const create = async (req, res) => {
       where: { email }
     });
     if (findUser) {
-      res.status(400).send(exception(500, 'failed', 'Email & Password already exist'))
+      return res.status(400).send(exception(500, 'failed', 'Email & Password already exist'))
     }
     const saltOFRound = 10;
     const hash = await bcrypt.hash(password, saltOFRound);
@@ -38,11 +38,11 @@ const getByLogin = async (req, res) => {
       where: { email }
     });
     if (!findUserByEmail) {
-      res.status(400).send(exception(500, 'failed', 'email and password wrong'))
+      return res.status(400).send(exception(400, 'failed', 'email and password wrong'))
     }
     const validPassword = await bcrypt.compare(password, findUserByEmail.password);
     if (!validPassword) {
-      res.status(400).send(exception(500, 'failed', 'ema and password  wrong'))
+      return res.status(400).send(exception(400, 'failed', 'ema and password  wrong'))
     }
     const result = await userService.getBy({
       where: { email: 'jhondoe@gmail.com' },

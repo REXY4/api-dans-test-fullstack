@@ -1,6 +1,8 @@
 const { user: handler } = require('../controllers');
 const response = require('../helpers/response');
 const authentication = require('../middlewares/authentication');
+const validation = require('../middlewares/validation');
+const { user: schema } = require('../schemas');
 
 const moduleRouteDef = {
   basePath: '/api/v1/user',
@@ -8,7 +10,7 @@ const moduleRouteDef = {
   routes: [
     {
       active: true,
-      method: 'get',
+      method: 'post',
       path: '/login',
       summary: 'login',
       description: 'Login Api Pings',
@@ -25,6 +27,7 @@ const moduleRouteDef = {
       summary: 'login',
       description: 'register Api Users',
       action: [
+        validation(schema.body, 'body'),
         handler.create,
       ],
       validators: {},

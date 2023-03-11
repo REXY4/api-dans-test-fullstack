@@ -1,13 +1,15 @@
 /* eslint-disable no-console */
 const express = require('express');
+const cors = require('cors')
 
 class Server {
   constructor(option, manifest) {
     this.config = Object.assign(option);
     this.manifest = Object.assign(manifest);
     this.app = express();
+    this.app.use(cors())
     this.app.use(express.json());
-    this.app.use(express.urlencoded({ extended: false }));
+    this.app.use(express.urlencoded({ extended: true }));
 
     Object.values(this.config.routes).forEach((moduleRouteDef) => {
       const router = express.Router();

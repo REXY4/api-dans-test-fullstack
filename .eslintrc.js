@@ -12,7 +12,7 @@ module.exports = {
   },
   plugins: ['jest'],
   rules: {
-    'consistent-return' : 0,
+    'consistent-return': 0,
     'max-len': ['warn', 160],
     indent: ['error', 2, { ignoreComments: true }],
     'comma-dangle': ['off', 'never'],
