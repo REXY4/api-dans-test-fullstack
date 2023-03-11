@@ -1,4 +1,4 @@
 module.exports = {
   ping: require('./ping'),
-  user : require("./user"),
+  user: require('./user'),
 };
