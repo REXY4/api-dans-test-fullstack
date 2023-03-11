@@ -61,7 +61,7 @@ const getByLogin = async (req, res) => {
 
 const checkUser = async (req, res) => {
   const findUserById = await userService.getBy({
-    where: { id : req.id },
+    where: { id: req.id },
     attributes: {
       exclude: ['password']
     }

@@ -6,7 +6,7 @@ const routes = require('./routes');
 class Manifest {
   constructor() {
     this.config = config;
-    this.routes = Object.values(routes).filter(fil => fil.routes.map((fil) => fil.active === true));
+    this.routes = Object.values(routes).filter(fil => fil.routes.map((route) => route.active === true));
     this.app = express();
   }
 
